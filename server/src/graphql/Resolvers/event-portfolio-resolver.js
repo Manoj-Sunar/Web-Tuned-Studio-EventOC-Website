@@ -1,6 +1,6 @@
 
 import PortfolioEventSchema from "../../../models/portfolio-event-schema.js";
-import { createPortfolioService, deletePortfolioService, updatePortfolioService } from "../../../services/Event-Portfolio-Services.js";
+import { createPortfolioService, deletePortfolioService, updatePortfolioService } from "../../../services/event-portfolio-services.js";
 
 
 
