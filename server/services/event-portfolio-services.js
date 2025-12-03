@@ -72,6 +72,23 @@ export const deletePortfolioService = async (id, user) => {
 };
 
 
+export const getPortfolioEventServiceById = async (id, user) => {
+    try {
+
+        if (!user) throw new Error("Authentication required");
+        if (!user.isAdmin) throw new Error("Only admins can edit event portfolio");
+
+
+        const event = await PortfolioEventSchema.findById(id);
+
+        if (!event) throw new Error("Portfolio event not found");
+        return event;
+
+    } catch (error) {
+
+    }
+}
+
 
 
 

@@ -52,11 +52,13 @@ const portfolioTypeDefs = gql`
   type Query {
     getAllPortfolio: [Portfolio!]!
     getPortfolioBySlug(slug: String!): Portfolio
+    getEventPortfolioById(id:ID!):Portfolio
   }
 
   type Mutation {
     createPortfolio(input: CreatePortfolioInput!): Portfolio!
     updatePortfolio(id: ID!, input: UpdatePortfolioInput!): Portfolio!
+    
     deletePortfolio(id: ID!): String!
   }
 `;

@@ -1,6 +1,6 @@
 
 import PortfolioEventSchema from "../../../models/portfolio-event-schema.js";
-import { createPortfolioService, deletePortfolioService, updatePortfolioService } from "../../../services/event-portfolio-services.js";
+import { createPortfolioService, deletePortfolioService, getPortfolioEventServiceById, updatePortfolioService } from "../../../services/event-portfolio-services.js";
 
 
 
@@ -20,6 +20,12 @@ const portfolioResolvers = {
       if (!event) throw new Error("Event not found");
       return event;
     },
+
+    getEventPortfolioById:async(_,{id},{user})=>{
+      if(!user) throw new Error("Authentatication required");
+      if(!user.isAdmin) throw new Error("only admin can get this event portfolo");
+      return await getPortfolioEventServiceById(id,user);
+    }
 
 
   },
